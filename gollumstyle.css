@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fae1dd;
+    font-family: "IM Fell DW Pica", serif;
+    color: #f08080;
+    text-shadow: 1px 1px 2px white;
+    font-style: italic;
+    font-size: 30px;
+}
+
+button {
+    border: none;
+    color: #f08080;
+    background-color: white;
+    cursor: pointer;
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #f8ad9d;
+}
+
+button:focus {
+    outline: 0;
+}
+
+#yesButton {
+    position: absolute;
+    padding: 10px 20px;
+    left: 480px;
+}
+
+#noButton {
+    position: absolute;
+    padding: 10px 25px;
+    right: 480px;
+}
