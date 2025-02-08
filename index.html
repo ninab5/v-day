@@ -18,9 +18,14 @@
         <div class="gollum_img">
             <img src="">
         </div>
-        <div class="buttons">
-            <button>Yes</button>
+        <div class="buttons">Yes
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
             <button>No</button>
+            <script>
+                function nextPage() {
+                    window.location.href = "letter.html";
+                }
+            </script>
         </div>
     </div>
 </body>
