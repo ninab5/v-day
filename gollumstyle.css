@@ -36,5 +36,5 @@ button:focus {
 #noButton {
     position: absolute;
     padding: 10px 25px;
-    right: 480px;
+    left: 680px;
 }

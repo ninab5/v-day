@@ -57,37 +57,6 @@ body {
     transition: transform 0.4s 0.6s ease, z-index 1s;
     z-index: 5;
   }
-
-  .heart {
-    position: absolute;
-    top: 150px;
-    left: 150px;
-    width: 15px;
-    height: 15px;
-    background: red;
-    z-index: 4;
-    transform: translate(-50%, -20%) rotate(45deg);
-    transition: transform 0.5s ease-in-out 1s;
-    box-shadow: 0 1px 6px red;
-    cursor: pointer;
-  }
-
-  .heart:before, .heart:after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-  }
-
-  .heart:before {
-    top: -7.5px;
-  }
-
-  .heart:after {
-    right: 7.5px;
-  }
   
   .card {
     position: absolute;
@@ -134,31 +103,33 @@ body {
   .heart {
     background-color: #d62828;
     display: inline-block;
-    height: 30px;
-    margin: 0 10px;
-    position: relative;
-    top: 100px;
-    left: 105px;
-    transform: rotate(-45deg);
-    width: 30px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 110px;
+    left: 150px;
+    z-index: 11;
+    transform: translate(-50%, -20%) rotate(-45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 1px 6px #c46969;
   }
   
   .heart:before, .heart:after {
     content: "";
     background-color: #d62828;
     border-radius: 50%;
-    height: 30px;
+    width: 14px;
+    height: 14px;
     position:absolute;
-    width: 30px;
   }
   
   .heart:before {
-    top: -15px;
+    top: -7px;
     left: 0px;
   }
   
   .heart:after {
-    left: 15px;
+    left: 7px;
     top: 0px;
   }
   
