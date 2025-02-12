@@ -19,7 +19,7 @@
         <div class="gollum_img">
             <img src="gollum.png" class="center">
         </div>
-        <div class="buttons">
+        <div class="button-container">
             <button class="btn" id="yesButton" onclick="nextPage()">YES</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">NO</button>
             <script>
@@ -27,10 +27,31 @@
                     window.location.href = "letter.html";
                 }
                 function moveButton() {
-                    var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
-                    var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
-                    document.getElementById('noButton').style.left = `${x}px`;
-                    document.getElementById('noButton').style.top = `${y}px`;
+                    var button = document.getElementById('noButton');
+                    var buttonWidth = button.offsetWidth;
+                    var buttonHeight = button.offsetHeight;
+
+                    var restrictedAreaTop = -250;  // Top boundary of the area (in pixels)
+                    var restrictedAreaLeft = -250; // Left boundary of the area (in pixels)
+
+                    // Define the size of the restricted area (e.g., 300x300 pixels)
+                    var restrictedAreaWidth = 1100;  // Width of the area the button can move in
+                    var restrictedAreaHeight = -1100; // Height of the area the button can move in
+
+                    // Calculate the maximum x and y values the button can move to within the restricted area
+                    var maxX = restrictedAreaLeft + restrictedAreaWidth - buttonWidth;
+                    var maxY = restrictedAreaTop + restrictedAreaHeight - buttonHeight;
+
+                    // Ensure maxX and maxY are non-negative (in case of very small screens)
+                    maxX = Math.max(restrictedAreaLeft, maxX);
+                    maxY = Math.max(restrictedAreaTop, maxY);
+
+                    // Randomly position the button within the restricted area
+                    var x = restrictedAreaLeft + Math.random() * maxX;
+                    var y = restrictedAreaTop + Math.random() * maxY;
+                    
+                    button.style.left = `${x}px`;
+                    button.style.top = `${y}px`;
                 }
             </script>
         </div>
