@@ -6,233 +6,245 @@ body {
     background-color: #fae1dd;
   }
   
-  .container {
-    position: relative;
-  }
+.container {
+  position: relative;
+  position: relative;
+  top: 50px;
+  cursor: pointer;
+  animation: up 3s linear infinite;
+  z-index: 1;
+}
   
-  .valentines {
-    position: relative;
-    top: 50px;
-    cursor: pointer;
-    animation: up 3s linear infinite;
+@keyframes up {
+  0%, 100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-30px);
+  }
+}
   
-  @keyframes up {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-30px);
-    }
-  }
+.container > .envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #f08080;
+  z-index: 3;
+}
   
-  .envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background-color: #f08080;
-  }
+.enveloppe-wrapper > .envelope {
+  content: "";
+  position: absolute;
+  border-top: 130px solid #f8ad9d;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 82px solid transparent;
+  top: 0px;
+  left: 0px;
+  z-index: auto;
+  transform-origin: top;
+}
+
+.envelope-wrapper > .envelope:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  border-top: 120px solid #f8ad9d;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 82px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+
+.envelope-wrapper > .envelope:after {
+  content: "";
+  position: absolute;
+  border-left: 150px solid #f4978e;
+  border-right: 150px solid #f4978e;
+  border-top: 118px solid transparent;
+  border-bottom: 82px solid #f4978e;
+  left: 0px;
+  top: 0px;
+  width: 0px;
+  height: 0px;
+  z-index: 8;
+}
+
+.envelope > .card {
+  position: absolute;
+  background-color: #f5ead0;
+  width: 270px;
+  height: 170px;
+  top: 15px;
+  left: 15px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
+  z-index: 2;
+}
   
-  .envelope-wrapper {
-    content: "";
-    position: absolute;
-    border-top: 130px solid #f8ad9d;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-bottom: 82px solid transparent;
-    top: 0px;
-    left: 0px;
-    z-index: 10;
-    transform-origin: top;
-  }
+.envelope > .card:before {
+  content: "";
+  position: absolute;
+  border: 3px solid #003049;
+  border-style: dotted;
+  width: 245px;
+  height: 145px;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+  
+.envelope > .card > .text {
+  position: absolute;
+  font-family: "IM Fell DW Pica", serif;
+  font-size: 16px;
+  text-align: center;
+  line-height: 25px;
+  top: 25px;
+  left: 5px;
+  color: #003049
+}
+  
+.envelope > .card > .text2 {
+  position: absolute;
+  font-family: "IM Fell DW Pica", serif;
+  font-size: 16px;
+  line-height: 25px;
+  bottom: 17px;
+  right: 23px;
+  color: #003049
+}
+  
+.heart {
+  background-color: #d62828;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 110px;
+  left: 150px;
+  z-index: 11;
+  transform: translate(-50%, -20%) rotate(-45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px #c46969;
+}
+  
+.heart:before, .heart:after {
+  content: "";
+  background-color: #d62828;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  position:absolute;
+}
+  
+.heart:before {
+  top: -7px;
+  left: 0px;
+}
+  
+.heart:after {
+  left: 7px;
+  top: 0px;
+}
 
 .flap > .envelope:before {
   transform: rotateX(180deg);
   z-index: 0;
 }
 
+.flap > .envelope > .card {
+  bottom: 100px;
+  transform: translateY(-140px);
+  transition: transform 1s ease-in-out 1s;
+  transition-delay: 0.9s;
+}
+
 .flap > .heart {
   transform: rotate(90deg);
-  transition-delay: 0.3s;
+  transition: transform 0.5s ease-in-out 0.4s;
+  transition-delay: 0.4s;
 }
   
-  .card {
-    position: absolute;
-    background-color: #f5ead0;
-    width: 270px;
-    height: 170px;
-    top: 5px;
-    left: 15px;
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
-  }
+.hearts {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
   
-  .card:before {
-    content: "";
-    position: absolute;
-    border: 3px solid #003049;
-    border-style: dotted;
-    width: 245px;
-    height: 145px;
-    top: 10px;
-    left: 10px;
-  }
+.one, .two, .three, .four, .five {
+  background-color: #d62828;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0 10px;
+  position: relative;
+  transform: rotate(-45deg);
+  top: 50px;
+}
   
-  .text {
-    position: absolute;
-    font-family: "IM Fell DW Pica", serif;
-    font-size: 16px;
-    text-align: center;
-    line-height: 25px;
-    top: 25px;
-    left: 5px;
-    color: #003049
-  }
+.one:before, .one:after, .two:before, .two:after, .three:before, .three:after, .four:before, .four:after, .five:before, .five:after {
+  content: "";
+  background-color: #d62828;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
   
-  .text2 {
-    position: absolute;
-    font-family: "IM Fell DW Pica", serif;
-    font-size: 16px;
-    line-height: 25px;
-    bottom: 17px;
-    right: 23px;
-    color: #003049
-  }
+.one:before, .two:before, .three:before, .four:before, .five:before {
+  top: -5px;
+  left: 0px;
+}
   
-  .heart {
-    background-color: #d62828;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    top: 110px;
-    left: 150px;
-    z-index: 11;
-    transform: translate(-50%, -20%) rotate(-45deg);
-    transition: transform 0.5s ease-in-out 1s;
-    box-shadow: 0 1px 6px #c46969;
-  }
+.one:after, .two:after, .three:after, .four:after, .five:after {
+  left: 5px;
+  top: 0px;
+}
   
-  .heart:before, .heart:after {
-    content: "";
-    background-color: #d62828;
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    position:absolute;
-  }
+.one {
+  left: 10px;
+  animation: heart 1s ease-out infinite;
+}
   
-  .heart:before {
-    top: -7px;
-    left: 0px;
-  }
+.two {
+  left: 30px;
+  animation: heart 2s ease-out infinite;
+}
   
-  .heart:after {
-    left: 7px;
-    top: 0px;
-  }
+.three {
+  left: 50px;
+  animation: heart 1.5s ease-out infinite;
+}
   
-  .hearts {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-  }
+.four {
+  left: 70px;
+  animation: heart 2.3s ease-out infinite;
+}
   
-  @keyframes heart {
-    0% {
-      transform: translateY(0) rotate(-45deg) scale(0.3);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-190px) rotate(-45deg) scale(1.3);
-      opacity: 0.5;
-    }
-  }
+.five {
+  left: 90px;
+  animation: heart 1.7s ease-out infinite;
+}
   
-  .one, .two, .three, .four, .five {
-    background-color: #d62828;
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    margin: 0 10px;
-    position: relative;
-    transform: rotate(-45deg);
-    top: 50px;
-  }
+.shadow {
+  position: absolute;
+  width: 330px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 265px;
+  left: -15px;
+  z-index:-1;
+  animation: scale 3s linear infinite;
+}
   
-  .one:before, .one:after, .two:before, .two:after, .three:before, .three:after, .four:before, .four:after, .five:before, .five:after {
-    content: "";
-    background-color: #d62828;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    position: absolute;
+@keyframes scale {
+  0%, 100% {
+    transform: scaleX(1);
   }
-  
-  .one:before, .two:before, .three:before, .four:before, .five:before {
-    top: -5px;
-    left: 0px;
+  50% {
+    transform: scaleX(0.85);
   }
-  
-  .one:after, .two:after, .three:after, .four:after, .five:after {
-    left: 5px;
-    top: 0px;
-  }
-  
-  .one {
-    left: 10px;
-    animation: heart 1s ease-out infinite;
-  }
-  
-  .two {
-    left: 30px;
-    animation: heart 2s ease-out infinite;
-  }
-  
-  .three {
-    left: 50px;
-    animation: heart 1.5s ease-out infinite;
-  }
-  
-  .four {
-    left: 70px;
-    animation: heart 2.3s ease-out infinite;
-  }
-  
-  .five {
-    left: 90px;
-    animation: heart 1.7s ease-out infinite;
-  }
-  
-  .front {
-    position: absolute;
-    border-left: 150px solid #f4978e;
-    border-right: 150px solid #f4978e;
-    border-top: 118px solid transparent;
-    border-bottom: 82px solid #f4978e;
-    left: 0px;
-    top: 0px;
-    width: 0px;
-    height: 0px;
-    z-index: 10;
-  }
-  
-  .shadow {
-    position: absolute;
-    width: 330px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    top: 265px;
-    left: -15px;
-    z-index:-1;
-    animation: scale 3s linear infinite;
-  }
-  
-  @keyframes scale {
-    0%, 100% {
-      transform: scaleX(1);
-    }
-    50% {
-      transform: scaleX(0.85);
-    }
-  }
+}
