@@ -4,6 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #fae1dd;
+    overflow: hidden;
   }
   
 .container {
@@ -69,7 +70,7 @@ body {
   top: 0px;
   width: 0px;
   height: 0px;
-  z-index: 8;
+  z-index: 11;
 }
 
 .envelope > .card {
@@ -79,8 +80,9 @@ body {
   height: 170px;
   top: 15px;
   left: 15px;
+  border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
-  z-index: 2;
+  z-index: 1;
 }
   
 .envelope > .card:before {
@@ -92,7 +94,7 @@ body {
   height: 145px;
   top: 10px;
   left: 10px;
-  z-index: 2;
+  z-index: 1;
 }
   
 .envelope > .card > .text {
@@ -111,8 +113,8 @@ body {
   font-family: "IM Fell DW Pica", serif;
   font-size: 16px;
   line-height: 25px;
-  bottom: 17px;
-  right: 23px;
+  bottom: 25px;
+  right: 25px;
   color: #003049
 }
   
@@ -149,6 +151,89 @@ body {
   top: 0px;
 }
 
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  z-index: 2;
+}
+
+.love {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  animation: heart 2s ease-out forwards;
+}
+
+.love:before, .love:after {
+  position: absolute;
+  content: "";
+  background: #d00000;
+  width: 50px;
+  height: 80px;
+  left: 50px;
+  top: 0;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.love:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .love {
+  opacity: 0;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  animation: slideUp 4s linear 1, sideSway 2s  ease-in-out 4 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  animation: slideUp 5s linear 1, sideSway 4s  ease-in-out 2 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  animation: slideUp 7s linear 1, sideSway 2s  ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -750px;
+  }
+}
+
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 40px;
+  }
+}
+
 .flap > .envelope:before {
   transform: rotateX(180deg);
   z-index: 0;
@@ -156,76 +241,9 @@ body {
 
 .flap > .envelope > .card {
   bottom: 100px;
-  transform: translateY(-140px);
+  transform: translateY(-120px);
   transition: transform 1s ease-in-out 1s;
   transition-delay: 0.9s;
-}
-
-.flap > .heart {
-  transform: rotate(90deg);
-  transition: transform 0.5s ease-in-out 0.4s;
-  transition-delay: 0.4s;
-}
-  
-.hearts {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-}
-  
-.one, .two, .three, .four, .five {
-  background-color: #d62828;
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  margin: 0 10px;
-  position: relative;
-  transform: rotate(-45deg);
-  top: 50px;
-}
-  
-.one:before, .one:after, .two:before, .two:after, .three:before, .three:after, .four:before, .four:after, .five:before, .five:after {
-  content: "";
-  background-color: #d62828;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-}
-  
-.one:before, .two:before, .three:before, .four:before, .five:before {
-  top: -5px;
-  left: 0px;
-}
-  
-.one:after, .two:after, .three:after, .four:after, .five:after {
-  left: 5px;
-  top: 0px;
-}
-  
-.one {
-  left: 10px;
-  animation: heart 1s ease-out infinite;
-}
-  
-.two {
-  left: 30px;
-  animation: heart 2s ease-out infinite;
-}
-  
-.three {
-  left: 50px;
-  animation: heart 1.5s ease-out infinite;
-}
-  
-.four {
-  left: 70px;
-  animation: heart 2.3s ease-out infinite;
-}
-  
-.five {
-  left: 90px;
-  animation: heart 1.7s ease-out infinite;
 }
   
 .shadow {
